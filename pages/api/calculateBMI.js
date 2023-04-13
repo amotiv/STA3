@@ -16,13 +16,12 @@ export default function handler(req, res) {
     const heightParts = height.split(/[ ,]+/).filter(Boolean); // Extract feet and inches
     const feet = parseInt(heightParts[0], 10);
     const inches = heightParts.length > 1 ? parseInt(heightParts[1], 10) : 0;
-  
     const heightInMeters = (feet * 12 + inches) * 0.0254;
     const weightInKilograms = weight * 0.453592;
     const bmi = weightInKilograms / (heightInMeters ** 2);
-  
     return bmi.toFixed(1);
   }
+  
   
   
   function bmiCategory(bmi) {
